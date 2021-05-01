@@ -1,39 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import localStorageUtil from '../../utils/localstorage';
+
 import './entry.scss';
 
 function Entry(props) {
-    const {title, description, 
-        urlToImage, publishedAt, 
-        author, url} = props;
+    const { entry, localEntry = false } = props
 
-    const articleDate = new Date(publishedAt);
+    const articleDate = new Date(entry.publishedAt);
     
     return (
         <div className='entry' >
             <div className='description'>
-                <a href={url} ><h3>{title}</h3></a>
-                <p>{description}</p>
+                <a href={entry.url} ><h3>{entry.title}</h3></a>
+                <p>{entry.description}</p>
                 <div className='data'>
-                    <p>Published by {author || 'Anonymous'}, {articleDate.toDateString()}</p>
+                    <p>Published by {entry.author || 'Anonymous'}, {articleDate.toDateString()}</p>
                 </div>
+                {!localEntry && <div className="save-article">
+                    <button onClick={() => {
+                        localStorageUtil.post(entry);
+                    }}>Save Article Locally</button>
+                </div>}
             </div>
             <div className='image'>
-                <img src={urlToImage} alt={title}/>
+                <img src={entry.urlToImage} alt={entry.title}/>
             </div>
+            
 
         </div>
     )
 }
 
 Entry.propTypes = {
-    title: PropTypes.string,
-    description: PropTypes.string,
-    urlToImage: PropTypes.string,
-    publishedAt: PropTypes.string,
-    author: PropTypes.string,
-    url: PropTypes.string,
+    entry: PropTypes.object,
+    localEntry: PropTypes.bool
 };
 
 export default Entry;

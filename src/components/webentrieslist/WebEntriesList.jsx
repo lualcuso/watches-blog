@@ -33,9 +33,9 @@ class WebEntriesList extends React.Component {
         return (
             <div className='web-entries-list'>
                 {entries.map((entry, index) => {
-                    return <Entry key={index} {...entry} />
+                    return <Entry key={index} entry={entry} />
                 })}
-                {entries.length && <div className='load-more'>
+                {entries.length > 0 && <div className='load-more'>
                     <button onClick={() => {
                         this.setState({
                             currentPage: this.state.currentPage + 1
