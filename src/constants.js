@@ -1,1 +1,1 @@
-export const ENTRIES_URL = 'https://newsapi.org/v2/everything?q=watches&sortBy=publishedAt&apiKey=acde49a5d5d247ecb7d7a866c56844fd'
+export const ENTRIES_URL = 'https://newsapi.org/v2/everything?q=watches&sortBy=relevancy&apiKey=acde49a5d5d247ecb7d7a866c56844fd&pageSize=10&page='
