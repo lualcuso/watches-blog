@@ -1,0 +1,30 @@
+.entry {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    .description {
+        width: 45%;
+        margin-right: 5%;
+        .data {
+            display: flex;
+
+            p {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .image {
+        width: 45%;
+        height: 270px;
+        text-align: center;
+
+        img {
+            height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    margin-bottom: 30px;
+}
