@@ -11,6 +11,11 @@
       li {
         display: inline-block;
         margin-right: 10px;
+        font-weight: bold;
+        
+        a {
+          text-decoration: none;
+        }
       }
     }
   }

@@ -3,9 +3,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 
+import Home from './components/home/Home';
 import WebEntriesList from './components/webentrieslist/WebEntriesList';
 import LocalEntriesList from './components/localentrieslist/LocalEntriesList';
 
@@ -19,10 +20,13 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/web-articules">Web Articles</Link>
+              <NavLink exact to="/" activeStyle={{ color: 'red' }}>Home</NavLink>
             </li>
             <li>
-              <Link to="/local-articles">Local Articles</Link>
+              <NavLink to="/web-articules" activeStyle={{ color: 'red' }}>Web Articles</NavLink>
+            </li>
+            <li>
+              <NavLink to="/local-articles" activeStyle={{ color: 'red' }}>Local Articles</NavLink>
             </li>
           </ul>
         </nav>
@@ -33,6 +37,9 @@ function App() {
           </Route>
           <Route path="/local-articles">
             <LocalEntriesList />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </div>
